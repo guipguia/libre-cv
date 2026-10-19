@@ -3,12 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Libre CV — free, private CV editor</title>
     <meta name="description" content="Free, open-source CV editor. Import your CV from a PDF, edit it and export it. Everything stays in your browser." />
+    <link rel="canonical" href="https://libre-cv.org/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://libre-cv.org/" />
+    <meta property="og:title" content="Libre CV — free, private CV editor" />
+    <meta property="og:description" content="Import your CV from a PDF, edit it and export it. No account, nothing uploaded." />
     <link rel="icon" href="data:," />
-    <title>Libre CV</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Shown to crawlers and before the app loads; React replaces it. -->
+      <h1>Libre CV</h1>
+      <p>Free, open-source CV editor. Import your CV from a PDF (including scanned PDFs), edit it in a simple form and
+        export a clean, ATS-friendly PDF. No account, no upload: everything stays in your browser.</p>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
