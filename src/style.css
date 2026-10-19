@@ -1,0 +1,88 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f4f4f2;
+  --fg: #1d1d1b;
+  --muted: #6b6b66;
+  --line: #d6d6d0;
+  --field: #fff;
+  --accent: #1f5fbf;
+  font-family: system-ui, sans-serif;
+  font-size: 15px;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #18181a; --fg: #ececea; --muted: #a0a09a; --line: #3a3a3d; --field: #232326; --accent: #6ea0ff; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); }
+a { color: var(--accent); }
+
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 10px 16px; border-bottom: 1px solid var(--line); }
+.toolbar h1 { font-size: 18px; margin: 0 auto 0 0; }
+button, .button {
+  font: inherit; padding: 6px 12px; border: 1px solid var(--line); border-radius: 6px;
+  background: var(--field); color: var(--fg); cursor: pointer;
+}
+.toolbar .button { display: inline-block; margin: 0; font-size: inherit; color: var(--fg); }
+button:disabled { opacity: 0.4; cursor: default; }
+.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.status { margin: 0; padding: 8px 16px; background: color-mix(in srgb, var(--accent) 12%, transparent); }
+
+main { display: grid; grid-template-columns: minmax(320px, 440px) 1fr; gap: 16px; padding: 16px; align-items: start; }
+.side { display: grid; gap: 12px; }
+.preview { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow: auto; }
+@media (max-width: 900px) {
+  main { grid-template-columns: 1fr; }
+  .preview { position: static; max-height: none; }
+}
+
+.panel, fieldset { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; margin: 0; background: var(--field); }
+.panel summary { cursor: pointer; font-weight: 600; }
+.panel ul { padding-left: 18px; margin: 8px 0 0; }
+.editor { display: grid; gap: 12px; }
+legend { font-weight: 600; padding: 0 4px; }
+label { display: grid; gap: 2px; margin-bottom: 8px; font-size: 13px; color: var(--muted); }
+input, textarea {
+  font: inherit; font-size: 14px; color: var(--fg); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 4px; padding: 6px 8px; width: 100%;
+}
+textarea { resize: vertical; }
+.item { border-bottom: 1px dashed var(--line); padding-bottom: 8px; margin-bottom: 8px; }
+.item-actions { display: flex; gap: 6px; }
+footer { padding: 16px; text-align: center; color: var(--muted); font-size: 13px; }
+
+/* The CV itself: always black on white, like paper. Standard fonts keep it ATS-safe. */
+.cv {
+  background: #fff; color: #111; width: 100%; max-width: 210mm; min-height: var(--page, 297mm); margin: 0 auto; padding: 14mm 16mm;
+  font-family: Arial, Helvetica, "Liberation Sans", sans-serif; font-size: 10.5pt; line-height: 1.35;
+  box-shadow: 0 1px 6px rgb(0 0 0 / 0.2);
+}
+.preview .cv {
+  background: repeating-linear-gradient(#fff 0 calc(var(--page, 297mm) - 1px), #e5484d calc(var(--page, 297mm) - 1px) var(--page, 297mm));
+}
+.pages { margin: 0 auto 6px; max-width: 210mm; font-size: 13px; color: var(--muted); }
+.toolbar select { font: inherit; margin-left: 4px; }
+.cv a { color: inherit; }
+.cv header { text-align: center; margin-bottom: 10pt; }
+.cv h1 { font-size: 22pt; margin: 0; }
+.cv header p { margin: 2pt 0; }
+.cv .label { font-size: 12pt; }
+.cv h2 {
+  font-size: 11.5pt; text-transform: uppercase; letter-spacing: 0.05em;
+  border-bottom: 1px solid #111; margin: 12pt 0 6pt; padding-bottom: 2pt;
+}
+.cv p { margin: 0 0 4pt; }
+.cv .entry { margin-bottom: 8pt; break-inside: avoid; }
+.cv .row { display: flex; justify-content: space-between; gap: 12pt; }
+.cv ul { margin: 2pt 0 0; padding-left: 0; list-style: none; }
+.cv li { padding-left: 1em; text-indent: -0.7em; }
+
+@media print {
+  /* Zero page margins make browsers drop their own URL/date header and footer;
+     the CV's padding is repeated on every page instead (box-decoration-break). */
+  @page { size: A4; margin: 0; }
+  body { background: #fff; }
+  .toolbar, .status, .side, .pages, footer { display: none; }
+  main { display: block; padding: 0; }
+  .preview { position: static; max-height: none; overflow: visible; }
+  .preview .cv { background: #fff; box-shadow: none; max-width: none; min-height: 0; padding: 12mm 16mm; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+}

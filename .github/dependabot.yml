@@ -1,0 +1,11 @@
+# Security fixes open PRs as soon as an advisory is published; routine updates are batched weekly.
+# Each PR gets a Cloudflare Pages preview URL, and the build runs the parser tests first.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      minor-and-patch:
+        update-types: [minor, patch]

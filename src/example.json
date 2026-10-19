@@ -1,0 +1,97 @@
+{
+  "meta": {
+    "language": "en"
+  },
+  "basics": {
+    "name": "Jane Doe",
+    "label": "Senior Software Engineer",
+    "email": "jane@example.com",
+    "phone": "+351 912 345 678",
+    "url": "janedoe.dev",
+    "summary": "Engineer with 10 years of experience building web apps.",
+    "location": {
+      "city": "Lisbon",
+      "region": "Portugal"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "url": "linkedin.com/in/janedoe"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Acme Corp",
+      "position": "Senior Engineer",
+      "location": "Lisbon",
+      "startDate": "2020-03",
+      "endDate": "",
+      "summary": "Leads the payments team.",
+      "highlights": [
+        "Built the billing system used by 2 million customers every month across Europe and Latin America",
+        "Cut cloud costs by 30%"
+      ]
+    },
+    {
+      "name": "Beta Ltd",
+      "position": "Developer",
+      "location": "",
+      "startDate": "2015-01",
+      "endDate": "2020-02",
+      "summary": "",
+      "highlights": [
+        "Wrote things"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Lisbon",
+      "studyType": "BSc",
+      "area": "Computer Science",
+      "startDate": "2010",
+      "endDate": "2014",
+      "score": "",
+      "courses": [],
+      "summary": "",
+      "highlights": []
+    }
+  ],
+  "skills": [
+    {
+      "name": "Languages",
+      "level": "",
+      "keywords": [
+        "JavaScript",
+        "Python"
+      ]
+    },
+    {
+      "name": "",
+      "level": "",
+      "keywords": [
+        "Docker",
+        "Kubernetes"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native"
+    },
+    {
+      "language": "Portuguese",
+      "fluency": "Fluent"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "AWS Solutions Architect",
+      "issuer": "Amazon",
+      "date": "2021-06",
+      "url": ""
+    }
+  ]
+}
