@@ -23,7 +23,7 @@ No account, no upload, no tracking: **everything runs in your browser** and your
 
 No backend, no database, no cookies, no analytics. All fonts, workers, WASM and OCR language data are self-hosted
 (`scripts/copy-assets.js` copies them from `node_modules` into `public/vendor`), and a strict
-Content-Security-Policy (`public/_headers`) stops the page from contacting any other server. See `public/privacy.html`.
+Content-Security-Policy (`public/_headers`) stops the page from contacting any other server. See `public/privacy.html` (served at `/privacy`).
 
 ## Development
 

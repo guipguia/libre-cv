@@ -191,7 +191,7 @@ function App() {
       </main>
       <footer>
         Your CV stays in this browser — nothing is uploaded. Free and open source (MIT) ·{' '}
-        <a href="https://github.com/guipguia/libre-cv">GitHub</a> · <a href="/privacy.html">Privacy</a>
+        <a href="https://github.com/guipguia/libre-cv">GitHub</a> · <a href="/privacy">Privacy</a>
       </footer>
     </>
   )
