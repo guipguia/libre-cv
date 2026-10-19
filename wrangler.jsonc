@@ -1,0 +1,7 @@
+// Cloudflare Workers static assets: serves dist/ as-is (no Worker code, no logs of visitors).
+{
+  "name": "libre-cv",
+  "compatibility_date": "2026-10-19",
+  "build": { "command": "npm run build" },
+  "assets": { "directory": "./dist" }
+}

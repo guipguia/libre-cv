@@ -36,16 +36,19 @@ npm run build   # runs the tests, then builds the static site in dist/
 
 The project is a plain static site: `dist/` can be hosted anywhere.
 
-## Deployment (Cloudflare Pages)
+## Deployment (Cloudflare Workers)
 
-1. Cloudflare dashboard → Workers & Pages → Create → Pages → connect `guipguia/libre-cv`.
-2. Framework preset **Vite**, build command `npm run build`, output directory `dist`.
-3. Custom domains → add `libre-cv.org`. For `www.libre-cv.org`, add it too and create a redirect rule
-   (Rules → Redirect Rules → "Redirect from WWW to root") — Pages' `_redirects` can't redirect between hostnames.
-4. Keep Web Analytics **off** for the project.
+The site is deployed as a static-assets-only Worker (`wrangler.jsonc`): no server code runs, Cloudflare just serves
+`dist/` with the headers from `public/_headers`.
 
-Pushes to `main` deploy to production; pull requests get preview URLs. `npm run build` runs the parser tests
-first, so a change that breaks them fails the deploy instead of going live.
+1. Cloudflare dashboard → Workers & Pages → Create → Import a repository → `guipguia/libre-cv`.
+2. Deploy command `npx wrangler deploy` (the default). Wrangler runs `npm run build` itself, which runs the
+   parser tests first, so a change that breaks them fails the deploy instead of going live.
+3. Settings → Domains & Routes → add custom domain `libre-cv.org`. For `www.libre-cv.org`, add it too and create a
+   redirect rule (Rules → Redirect Rules → "Redirect from WWW to root").
+4. Keep Web Analytics and Workers Logs **off**.
+
+Pushes to `main` deploy to production.
 
 ## Contributing
 
